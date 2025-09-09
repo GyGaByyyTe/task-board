@@ -3,12 +3,15 @@
 :root {
   --bg: #ffffff;
   --surface-muted: #F7F7F7;
+  --chip-bg: #eceff3;
   --chip-text: #4D4D4D;
   --text-strong: #212121;
   --text-muted: #5A5A65;
+  --pink-bg: #FFDCE0;
   --radius-lg: 24px;
   --radius-md: 12px;
   --radius-sm: 8px;
+  --shadow-card: 0px 2px 6px 0px #00000012;
 }
 
 * {

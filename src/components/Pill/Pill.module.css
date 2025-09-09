@@ -1,0 +1,18 @@
+.pill {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--chip-text);
+  letter-spacing: -0.4px;
+}
+
+.gray {
+  background: var(--chip-bg);
+
+}
+
+.pink {
+  background: var(--pink-bg);
+}
