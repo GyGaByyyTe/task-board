@@ -31,6 +31,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: var(--bg);
   color: var(--text-strong);
+  overflow-x: hidden;
 }
 
 code {
@@ -39,8 +40,14 @@ code {
 }
 
 .App {
-  padding: 20px;
+  padding: clamp(12px, 4vw, 20px);
   display: flex;
   flex-direction: column;
   gap: 24px;
+}
+
+@media (max-width: 600px) {
+  .App {
+    gap: 16px;
+  }
 }

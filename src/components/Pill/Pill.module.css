@@ -16,3 +16,9 @@
 .pink {
   background: var(--pink-bg);
 }
+@media (max-width: 600px) {
+  .pill {
+    font-size: 13px;
+    padding: 3px 8px;
+  }
+}

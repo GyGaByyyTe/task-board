@@ -24,3 +24,13 @@
   flex-direction: column;
   gap: 11px;
 }
+
+@media (max-width: 600px) {
+  .column {
+    padding: 9px;
+  }
+  .titleChip {
+    font-size: 14px;
+    padding: 4px 10px;
+  }
+}
