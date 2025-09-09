@@ -8,7 +8,7 @@ export interface AvatarProps {
   children?: React.ReactNode; // fallback content (emoji/initial)
 }
 
-export const Avatar: React.FC<AvatarProps> = ({ src, alt = '', size = 18, children }) => {
+const AvatarComponent: React.FC<AvatarProps> = ({ src, alt = '', size = 18, children }) => {
   const style: React.CSSProperties = {
     width: size,
     height: size,
@@ -19,3 +19,5 @@ export const Avatar: React.FC<AvatarProps> = ({ src, alt = '', size = 18, childr
     </span>
   );
 };
+
+export const Avatar = React.memo(AvatarComponent);

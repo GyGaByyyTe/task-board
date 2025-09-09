@@ -8,6 +8,8 @@ interface PillProps {
   variant?: PillVariant;
 }
 
-export const Pill: React.FC<PillProps> = ({ children, variant = 'pink' }) => {
+const PillComponent: React.FC<PillProps> = ({ children, variant = 'pink' }) => {
   return <span className={`${styles.pill} ${styles[variant]}`}>{children}</span>;
 };
+
+export const Pill = React.memo(PillComponent);

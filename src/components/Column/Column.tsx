@@ -6,7 +6,7 @@ interface ColumnProps {
   children: React.ReactNode;
 }
 
-export const Column: React.FC<ColumnProps> = ({ title, children }) => {
+const ColumnComponent: React.FC<ColumnProps> = ({ title, children }) => {
   return (
     <section className={styles.column}>
       <div className={styles.header}>
@@ -16,3 +16,5 @@ export const Column: React.FC<ColumnProps> = ({ title, children }) => {
     </section>
   );
 };
+
+export const Column = React.memo(ColumnComponent);

@@ -10,7 +10,7 @@ interface CardProps {
   footer?: React.ReactNode;
 }
 
-export const Card: React.FC<CardProps> = ({ title, description, avatars, footer }) => {
+const CardComponent: React.FC<CardProps> = ({ title, description, avatars, footer }) => {
   return (
     <article className={styles.card}>
       {(avatars && avatars.length > 0) && (
@@ -24,3 +24,5 @@ export const Card: React.FC<CardProps> = ({ title, description, avatars, footer 
     </article>
   );
 };
+
+export const Card = React.memo(CardComponent);

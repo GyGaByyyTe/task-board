@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Header } from './components/Header';
 import { Board } from './components/Board';
 import { Column } from './components/Column';
@@ -11,7 +11,12 @@ const IMAGES = [
     { id: 'a3', src: 'https://i.pravatar.cc/100?u=img3', alt: 'Lead' },
 ];
 
+const FOOTER_STACK_STYLE: React.CSSProperties = { display: 'flex', gap: 8 };
+
 function App() {
+  const avatarsFirstTwo = useMemo(() => IMAGES.slice(0, 2), []);
+  const avatarsLastOne = useMemo(() => IMAGES.slice(2), []);
+
   return (
     <div className="App">
       <Header />
@@ -21,7 +26,7 @@ function App() {
             title="Review scope"
             description="Review #390."
             footer={
-              <div style={{ display: 'flex', gap: 8 }}>
+              <div style={FOOTER_STACK_STYLE}>
                 <Pill>Due 4/11</Pill>
                 <Pill>Design</Pill>
               </div>
@@ -33,7 +38,7 @@ function App() {
           <Card
             title="Usability test"
             description="Research questions with Carina."
-            avatars={IMAGES.slice(0,2)}
+            avatars={avatarsFirstTwo}
             footer={<Pill>Research</Pill>}
           />
         </Column>
@@ -41,7 +46,7 @@ function App() {
           <Card
             title="Culture workshop"
             description="Let’s build a great team."
-            avatars={IMAGES.slice(2)}
+            avatars={avatarsLastOne}
             footer={<Pill>Due 24/11</Pill>}
           />
         </Column>

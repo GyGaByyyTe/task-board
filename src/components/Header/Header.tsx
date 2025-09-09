@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Header.module.css';
 
-export const Header: React.FC = () => {
+const HeaderComponent: React.FC = () => {
   return (
     <header>
       <h1 className={styles.title}>Design weekly</h1>
@@ -9,3 +9,5 @@ export const Header: React.FC = () => {
     </header>
   );
 };
+
+export const Header = React.memo(HeaderComponent);

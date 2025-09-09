@@ -6,7 +6,7 @@ interface AvatarGroupProps {
   items: (AvatarProps & { id: string })[];
 }
 
-export const AvatarGroup: React.FC<AvatarGroupProps> = ({ items }) => {
+const AvatarGroupComponent: React.FC<AvatarGroupProps> = ({ items }) => {
   return (
     <div className={styles.group}>
       {items.map((a) => (
@@ -15,3 +15,5 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = ({ items }) => {
     </div>
   );
 };
+
+export const AvatarGroup = React.memo(AvatarGroupComponent);

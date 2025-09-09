@@ -1,9 +1,44 @@
-# Empty React App
+# Task Board
 
-Cleaned Create React App scaffold. 
-The UI is intentionally blank and contains no CRA boilerplate.
+Простой Task Board на React + TypeScript (Create React App), собранный и деплоящийся на GitHub Pages.
 
-## Scripts
-- npm start — start dev server
-- npm test — run tests
-- npm run build — production build
+Демо: https://GyGaByyyTe.github.io/task-board
+
+## Локальная разработка
+- Установите зависимости: `npm ci`
+- Запустите дев-сервер: `npm start`
+- Продукционная сборка: `npm run build`
+
+## Деплой на GitHub Pages (автоматический)
+Проект настроен на деплой через GitHub Actions в GitHub Pages.
+
+Что сделано:
+- Добавлен workflow `.github/workflows/deploy.yml` — собирает приложение и публикует артефакт в Pages на каждый push в ветку `main` и по ручному запуску (Run workflow).
+- В `package.json` добавлено поле `homepage: "https://GyGaByyyTe.github.io/task-board"` — CRA корректно проставляет base path для статических ресурсов на Pages.
+
+Как активировать Pages в репозитории:
+1. Откройте Settings → Pages.
+2. В разделе Build and deployment установите Source: GitHub Actions.
+3. Сделайте push в ветку `main` (или запустите workflow вручную во вкладке Actions). После деплоя получите ссылку в выводе job `deploy`.
+
+Примечания:
+- Если у вас ветка по умолчанию не `main`, обновите её в файле `.github/workflows/deploy.yml` (раздел `on.push.branches`).
+- Ссылка на демо совпадает с названием репозитория. Если вы форкнули проект и изменили имя/владельца, обновите поле `homepage` в `package.json`.
+
+## Оптимизации кода
+Минимальные, безопасные оптимизации без изменения поведения:
+- Обёртка чистых презентационных компонентов в `React.memo`: `Avatar`, `AvatarGroup`, `Pill`, `Card`, `Column`, `Header`, `Board` — предотвращает ненужные перерисовки при неизменных пропсах.
+- В `App.tsx` вынесены константы и стабилизированы вычисления:
+  - `FOOTER_STACK_STYLE` — единый объект стиля вместо inline-объекта на каждый рендер;
+  - `useMemo` для слайсов `IMAGES` (избегаем создания новых массивов).
+
+Почему это уместно:
+- Компоненты являются чистыми и не содержат побочных эффектов; мемоизация снижает работу в reconciler без риска.
+- CRA/TS-конфигурация остаётся неизменной; деплой делается стандартным экшеном Pages.
+
+## Структура
+- `src/components/*` — атомарные и композиционные компоненты.
+- `src/App.tsx` — сборка доски с карточками.
+
+## Тесты
+Запуск: `npm test` (по умолчанию интерактивный режим CRA).
