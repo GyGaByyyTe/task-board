@@ -5,6 +5,12 @@ import { Column } from './components/Column';
 import { Card } from './components/Card';
 import { Pill } from './components/Pill';
 
+const IMAGES = [
+    { id: 'a1', src: 'https://i.pravatar.cc/100?u=img1', alt: 'Designer' },
+    { id: 'a2', src: 'https://i.pravatar.cc/100?u=img2', alt: 'Research' },
+    { id: 'a3', src: 'https://i.pravatar.cc/100?u=img3', alt: 'Lead' },
+];
+
 function App() {
   return (
     <div className="App">
@@ -27,6 +33,7 @@ function App() {
           <Card
             title="Usability test"
             description="Research questions with Carina."
+            avatars={IMAGES.slice(0,2)}
             footer={<Pill>Research</Pill>}
           />
         </Column>
@@ -34,7 +41,8 @@ function App() {
           <Card
             title="Culture workshop"
             description="Let’s build a great team."
-            footer={<Pill variant="pink">Due 24/11</Pill>}
+            avatars={IMAGES.slice(2)}
+            footer={<Pill>Due 24/11</Pill>}
           />
         </Column>
       </Board>
