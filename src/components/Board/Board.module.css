@@ -1,0 +1,9 @@
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: flex-start;
+  border-radius: var(--radius-lg);
+  border: 1px solid #0000000D;
+  padding: 11px;
+  gap: 12px;
+}

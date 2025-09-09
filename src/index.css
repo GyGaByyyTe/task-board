@@ -2,8 +2,13 @@
 
 :root {
   --bg: #ffffff;
+  --surface-muted: #F7F7F7;
+  --chip-text: #4D4D4D;
   --text-strong: #212121;
   --text-muted: #5A5A65;
+  --radius-lg: 24px;
+  --radius-md: 12px;
+  --radius-sm: 8px;
 }
 
 * {
@@ -28,4 +33,11 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.App {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
